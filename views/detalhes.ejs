@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Curso</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Plataforma de Cursos</a>
+
+        <div class="d-flex">
+    <% if (!logado) { %>
+        <a href="/login" class="btn btn-outline-light">Login</a>
+    <% } else { %>
+        <a href="/logout" class="btn btn-outline-danger">Logout</a>
+    <% } %>
+</div>
+
+    </div>
+</nav>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+        <h3><%= curso.nome %></h3>
+        <p><strong>Descrição:</strong> <%= curso.descricao %></p>
+        <p><strong>Carga Horária:</strong> <%= curso.cargaHoraria %></p>
+        <p><strong>Instrutor:</strong> <%= curso.instrutor %></p>
+        <p><strong>Nível:</strong> <%= curso.nivel %></p>
+        <p><strong>Preço:</strong> R$ <span id="preco"><%= curso.preco %></span></p>
+        <p><strong>Vagas:</strong> <%= curso.vagas %></p>
+
+        <hr>
+
+        <label>Quantidade:</label>
+        <input type="number" id="quantidade" class="form-control mb-3" min="1" value="1">
+
+        <p><strong>Total:</strong> R$ <span id="total"><%= curso.preco %></span></p>
+
+        <a href="/" class="btn btn-danger w-100" style="background-color:#bb4f4f; border:none;">Voltar</a>
+    </div>
+</div>
+
+<script src="/script.js"></script>
+
+</body>
+</html>
