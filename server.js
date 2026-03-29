@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -69,3 +70,22 @@ app.get("/logout", (req, res) => {
 app.listen(3000, () => {
     console.log("Servidor rodando em http://localhost:3000");
 });
+=======
+const express = require("express")
+const cors = require("cors")
+
+const cursoRoutes = require("./routes/cursoRoutes")
+
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+
+app.use("/api", cursoRoutes)
+
+const PORT = 3000
+
+app.listen(PORT,()=>{
+    console.log("Servidor rodando na porta 3000")
+})
+>>>>>>> 9fcfb014f09cb0b21087be0b7c339279577d0eb8
